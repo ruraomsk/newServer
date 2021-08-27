@@ -68,6 +68,7 @@ github.com/leodido/go-urn v1.2.1/go.mod h1:zt4jvISO2HfUBqxjfIshjdMTYS56ZS/qv49ic
 github.com/lib/pq v1.2.0/go.mod h1:5WUZQaWbwv1U+lTReE5YruASi9Al49XbQIvNi/34Woo=
 github.com/lib/pq v1.9.0/go.mod h1:AlVN5x4E4T544tWzH6hKfbfQvm3HdbOxrmggDNAPY9o=
 github.com/lib/pq v1.10.0/go.mod h1:AlVN5x4E4T544tWzH6hKfbfQvm3HdbOxrmggDNAPY9o=
+github.com/lib/pq v1.10.1/go.mod h1:AlVN5x4E4T544tWzH6hKfbfQvm3HdbOxrmggDNAPY9o=
 github.com/mattn/go-isatty v0.0.9/go.mod h1:YNRxwqDuOph6SZLI9vUUz6OYw3QyUt7WiY2yME+cCiQ=
 github.com/mattn/go-isatty v0.0.12/go.mod h1:cbi8OIDigv2wuxKPP5vlRcQ1OAZbq2CE4Kysco4FUpU=
 github.com/mattn/go-sqlite3 v1.14.6/go.mod h1:NyWgC/yNuGj7Q9rpYnZvas74GogHl5/Z4A/KQRfk6bU=
@@ -83,11 +84,13 @@ github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZN
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
 github.com/ruraomsk/TLServer v0.0.0-20210217115252-9213ce7cf083/go.mod h1:13MnFtU8WWELyBDpvhV2jssD7degyW//4IohAR/oiW4=
 github.com/ruraomsk/TLServer v0.0.0-20210406045801-7be6f944312e/go.mod h1:gI4E8debBX48NdV+s7XxSRC1gU/yUVKRCX76QQwEsFA=
+github.com/ruraomsk/TLServer v0.0.0-20210422102008-a35a3be950d3/go.mod h1:oc2pKIYenEoMzes8yVaXNch1Qfzy/Qw7q9WnwnBoIqk=
 github.com/ruraomsk/TLServer v0.0.0-20210610084221-e0d017de15bc h1:+rJVth6y9LKEYDK9FR/oT7MRjm5v8LWE9GuPO+oJSfE=
 github.com/ruraomsk/TLServer v0.0.0-20210610084221-e0d017de15bc/go.mod h1:oc2pKIYenEoMzes8yVaXNch1Qfzy/Qw7q9WnwnBoIqk=
 github.com/ruraomsk/ag-server v0.0.0-20210331101359-3eb5e2a69177/go.mod h1:GA82ZD7L8MdRq7SCNrN0cMOlzpmAvFJ+uFrg5mEul5Q=
-github.com/ruraomsk/ag-server v0.0.0-20210408071510-b560643080fc h1:LHEcxBaefCvNCsOuAiH5Sa7L/lCf/Azy3CXWlCKqJzA=
 github.com/ruraomsk/ag-server v0.0.0-20210408071510-b560643080fc/go.mod h1:DBL8eczWqzYkkDRJ0lpOOrzDzGdv5p+gbwsQROMdOuY=
+github.com/ruraomsk/ag-server v0.0.0-20210617074949-8d98ba7d1695 h1:cEWyecUsogxR4tJlRaEantF+WhxR4wfKZq8MHSkBTJQ=
+github.com/ruraomsk/ag-server v0.0.0-20210617074949-8d98ba7d1695/go.mod h1:yTD/S612BShVSsHmzNltOtYvzlhrIiYWUis1uM3wRvA=
 github.com/shopspring/decimal v1.2.0/go.mod h1:DKyhrW/HYNuLGql+MJL6WCR6knT2jwCFRcu2hWCYk4o=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
@@ -99,6 +102,7 @@ github.com/ugorji/go/codec v1.1.7/go.mod h1:Ax+UKWsSmolVDwsd+7N3ZtXu+yMGCf907BLY
 github.com/ugorji/go/codec v1.2.5/go.mod h1:QPxoTbPKSEAlAHPYt02++xp/en9B/wUdwFCz+hj5caA=
 github.com/unrolled/secure v1.0.8/go.mod h1:fO+mEan+FLB0CdEnHf6Q4ZZVNqG+5fuLFnP8p0BXDPI=
 github.com/urfave/negroni v1.0.0/go.mod h1:Meg73S6kFm/4PpbYdq35yYWoCZ9mS/YSx+lKnmiohz4=
+github.com/xwb1989/sqlparser v0.0.0-20180606152119-120387863bf2/go.mod h1:hzfGeIUDq/j97IG+FhNqkowIyEcD88LrW6fyU3K3WqY=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
 golang.org/x/crypto v0.0.0-20210322153248-0c34fe9e7dc2/go.mod h1:T9bdIzuCu7OtxOm1hfPfRQxPLYneinmdGuTeoZ9dtd4=

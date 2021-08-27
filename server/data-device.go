@@ -71,10 +71,10 @@ type DeviceInfo struct {
 	DebugInfo DebugInfo `json:"debug,omitempty"`
 }
 type OnBoard struct {
-	GPRS GPRSInfo `json:"GPRS,omitempty"`
-	GPS  GPSInfo  `json:"GPS,omitempty"`
-	ETH  ETHInfo  `json:"ETH,omitempty"`
-	USB  USBInfo  `json:"USB,omitempty"`
+	GPRS GPRSInfo `json:"gprs,omitempty"`
+	GPS  GPSInfo  `json:"gps,omitempty"`
+	ETH  ETHInfo  `json:"eth,omitempty"`
+	USB  USBInfo  `json:"usb,omitempty"`
 }
 type SoftWare struct {
 	Version string `json:"version"`
