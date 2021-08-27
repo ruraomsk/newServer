@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/ruraomsk/newServer/DebugLogger"
+	"github.com/ruraomsk/newServer/server"
 	"runtime"
 	"time"
 
@@ -34,12 +35,13 @@ func main() {
 	}
 	logger.Info.Println("Start new-server work...")
 	fmt.Println("Start new-server work...")
-
-	DebugLogger.ListenUDP()
-
 	extcon.BackgroundInit()
 
+	go DebugLogger.ListenUDP()
+
 	stop := make(chan interface{})
+	go server.MainServer(stop)
+
 	//ready := make(chan interface{})
 	extcon.BackgroundWork(time.Duration(1*time.Second), stop)
 	logger.Info.Println("Exit ag-server working...")

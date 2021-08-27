@@ -62,11 +62,11 @@ type CommServer struct {
 	TimeOutRead  int64  `toml:"read_timeout"`  //Таймаут на чтение если данные должны быть получены
 	TimeOutWrite int64  `toml:"write_timeout"` //Таймаут на запись если данные должны быть переданы
 	ID           int    `toml:"id"`
-	ipDevice     string `toml:"ipDevice"` //  #Адрес по которому ждем второй канал
-	portDevice   int    `toml:"portDevice"`
-	debug        bool   `toml:"debug"`
-	ipDebug      string `toml:"ipDebug"` //Адрес для сообщений отладчика
-	portDebug    int    `toml:"portDebug"`
+	IPDevice     string `toml:"ipDevice"` //  #Адрес по которому ждем второй канал
+	PortDevice   int    `toml:"portDevice"`
+	Debug        bool   `toml:"debug"`
+	IPDebug      string `toml:"ipDebug"` //Адрес для сообщений отладчика
+	PortDebug    int    `toml:"portDebug"`
 }
 
 //DataBase настройки базы данных postresql

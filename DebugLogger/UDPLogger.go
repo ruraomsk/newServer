@@ -9,8 +9,7 @@ import (
 )
 
 func ListenUDP() {
-	fmt.Sprintf(":%d", setup.Set.CommServer.portDebug)
-	pc, err := net.ListenPacket("udp", ":7777")
+	pc, err := net.ListenPacket("udp", fmt.Sprintf(":%d", setup.Set.CommServer.PortDebug))
 	if err != nil {
 		logger.Error.Print("Debug Logger %s", err.Error())
 		return
@@ -19,7 +18,7 @@ func ListenUDP() {
 	buffer := make([]byte, 512)
 	defer pc.Close()
 	for {
-		for i, _ := range buffer {
+		for i := range buffer {
 			buffer[i] = 0
 		}
 		_, addr, err := pc.ReadFrom(buffer)
