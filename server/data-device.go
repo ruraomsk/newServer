@@ -21,6 +21,8 @@ type DeviceControl struct {
 	interval       time.Duration //Интервал времени для проверки состояния устройства
 	DeviceInfo     DeviceInfo
 	timer          *time.Timer //Для вычисления не выхода на связь
+	full           bool
+	deleted        bool
 }
 
 func (d *DeviceControl) restartTimer() {
@@ -35,33 +37,37 @@ func newDevice(devinfo DeviceInfo, socket net.Conn) *DeviceControl {
 	dev.chanToSecond = make(chan []byte)
 	dev.chanFromMain = make(chan []byte)
 	dev.chanFromSecond = make(chan []byte)
+	dev.errorChan = make(chan interface{})
 	dev.stop = make(chan interface{})
 	dev.serverCMD = make(chan interface{})
 	dev.DeviceInfo = devinfo
 	dev.interval = 4 * 60
 	dev.socketMain = socket
+	dev.full = false
+	dev.deleted = true
 	dev.timer = time.NewTimer(dev.interval * time.Second)
 	return dev
 }
 func (d *DeviceControl) closeAll() {
-	d.mutex.Lock()
-	defer d.mutex.Unlock()
-	d.stop <- 1
-	d.stop <- 1
-	d.stop <- 1
-	time.Sleep(1 * time.Second)
-	close(d.chanToMain)
-	close(d.chanToSecond)
-	close(d.chanFromMain)
-	close(d.chanFromSecond)
-	_ = d.socketMain.Close()
-	_ = d.socketSecond.Close()
+	logger.Info.Printf("Обмен с устройством %d %s прекращается", d.DeviceInfo.ID, d.DeviceInfo.Type)
+	if !d.deleted {
+		close(d.chanToMain)
+		close(d.chanToSecond)
+		close(d.chanFromMain)
+		close(d.chanFromSecond)
+		_ = d.socketMain.Close()
+		if d.full {
+			_ = d.socketSecond.Close()
+		}
+		d.deleted = true
+		mutex.Lock()
+		delete(devices, d.DeviceInfo.ID)
+		mutex.Unlock()
+
+	}
 	logger.Info.Printf("Обмен с устройством %d %s прекращен", d.DeviceInfo.ID, d.DeviceInfo.Type)
 }
 
-type MessageDeviceInfo struct {
-	DeviceInfo DeviceInfo `json:"deviceinfo"`
-}
 type DeviceInfo struct {
 	ID        int       `json:"id"`
 	Type      string    `json:"type"` //ETH или GPRS
