@@ -67,7 +67,7 @@ func workerListenDevice(socket net.Conn) {
 	}
 	c = c[:len(c)-1]
 	logger.Info.Printf("Первая строка резервного %s", string(c))
-	var md DeviceInfo
+	var md MessageDevice
 	err = json.Unmarshal(c, &md)
 	if err != nil {
 		logger.Error.Printf("При конвертации от %s строки %s ошибка %s", socket.RemoteAddr().String(), string(c), err.Error())
@@ -77,9 +77,9 @@ func workerListenDevice(socket net.Conn) {
 	logger.Info.Printf("Первый  резервного %v", md)
 
 	mutex.Lock()
-	dev, is := devices[md.ID]
+	dev, is := devices[md.Connect.ID]
 	if !is {
-		logger.Error.Printf("Устройство %d неверная логика подключения канала с %s ", md.ID, socket.RemoteAddr().String())
+		logger.Error.Printf("Устройство %d неверная логика подключения канала с %s ", md.Connect.ID, socket.RemoteAddr().String())
 		_ = socket.Close()
 		mutex.Unlock()
 		return
@@ -88,11 +88,22 @@ func workerListenDevice(socket net.Conn) {
 	dev.full = true
 	go deviceToServer(dev)
 	mutex.Unlock()
-	c = append(newMessageServerInfo().Adopt(), '\n')
-	logger.Info.Printf("Отправляем по резервному %s", string(c))
-	_, err = writer.Write(c)
+	go serverToDevice(dev)
+	var r MessageServer
+	r.Connect = *newMessageServerInfo()
+	b, _ := json.Marshal(r)
+	b = append(b, '\n')
+	logger.Info.Printf("Отправляем по резервному %s", string(b))
+	_, _ = writer.Write(b)
+	err = writer.Flush()
 	if err != nil {
-		logger.Error.Printf("Устройство %d при передаче на %s %s", md.ID, socket.RemoteAddr().String(), err.Error())
+		logger.Error.Printf("При передаче на %d по адресу %s %s", dev.DeviceInfo.ID, dev.socketMain.RemoteAddr().String(), err.Error())
+		dev.errorChan <- 1
+		return
+	}
+
+	if err != nil {
+		logger.Error.Printf("Устройство %d при передаче на %s %s", md.Connect.ID, socket.RemoteAddr().String(), err.Error())
 		dev.stop <- 1
 		return
 	}
@@ -118,45 +129,56 @@ func workerSendDevice(socket net.Conn) {
 		}
 		//logger.Info.Printf("Первая строка основного %s",string(c))
 		c = c[:len(c)-1]
-		var md DeviceInfo
-		err = json.Unmarshal(c, &md)
+		var dm MessageDevice
+		err = json.Unmarshal(c, &dm)
 		if err != nil {
 			logger.Error.Printf("При конвертации от %s строки %s ошибка %s", socket.RemoteAddr().String(), string(c), err.Error())
 			_ = socket.Close()
 			return
 		}
-		//logger.Info.Printf("Первый  основного %v",md)
-		mutex.Lock()
-		old, is := devices[md.ID]
-		if is {
-			old.closeAll()
-			delete(devices, md.ID)
-		}
+		logger.Info.Printf("Первый  основного %v", dm)
+		var md DeviceInfo
+		md = dm.Connect
+		deleteDevice(md.ID)
 		dev := newDevice(md, socket)
 		devices[md.ID] = dev
-		mutex.Unlock()
 		go serverToDevice(dev)
-		dev.chanToMain <- newMessageServerInfo().Adopt()
+		var r MessageServer
+		r.Connect = *newMessageServerInfo()
+		dev.chanToMain <- r
 		for {
 			select {
+			case message := <-dev.chanFromMain:
+				logger.Info.Printf("Пришло от главного %d %s", dev.DeviceInfo.ID, message)
+			case message := <-dev.chanFromSecond:
+				logger.Info.Printf("Пришло от резервного %d %s", dev.DeviceInfo.ID, message)
 			case <-dev.timer.C:
 				//Прошло много времени со времени последнего обмена с устройством
-				dev.closeAll()
+				deleteDevice(md.ID)
 				logger.Info.Printf("Очень долго не отвечает %d", dev.DeviceInfo.ID)
 			case <-context.Done():
-				dev.closeAll()
+				deleteDevice(md.ID)
 				logger.Info.Printf("Приказано умереть %d", dev.DeviceInfo.ID)
 				return
 			case <-dev.stop:
-				dev.closeAll()
+				deleteDevice(md.ID)
 				logger.Info.Printf("Остановлено устройство %d", dev.DeviceInfo.ID)
 				return
 			case <-dev.errorChan:
-				dev.closeAll()
+				deleteDevice(md.ID)
 				logger.Info.Printf("Устройство %d отключено из-за ошибок", dev.DeviceInfo.ID)
 				return
 			}
 		}
 
+	}
+}
+func deleteDevice(id int) {
+	mutex.Lock()
+	defer mutex.Unlock()
+	d, is := devices[id]
+	if is {
+		d.closeAll()
+		delete(devices, id)
 	}
 }

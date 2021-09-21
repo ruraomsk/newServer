@@ -14,10 +14,10 @@ type DeviceControl struct {
 	stop           chan interface{} //По этому каналу приходит команды остановиться
 	serverCMD      chan interface{} //По этому каналу приходят команды от системы
 	errorChan      chan interface{} //Если программы ввода/вывода находят ошибку
-	chanToMain     chan []byte
-	chanFromMain   chan []byte
-	chanToSecond   chan []byte
-	chanFromSecond chan []byte
+	chanToMain     chan MessageServer
+	chanFromMain   chan MessageDevice
+	chanToSecond   chan MessageServer
+	chanFromSecond chan MessageDevice
 	interval       time.Duration //Интервал времени для проверки состояния устройства
 	DeviceInfo     DeviceInfo
 	timer          *time.Timer //Для вычисления не выхода на связь
@@ -33,10 +33,10 @@ func (d *DeviceControl) restartTimer() {
 }
 func newDevice(devinfo DeviceInfo, socket net.Conn) *DeviceControl {
 	dev := new(DeviceControl)
-	dev.chanToMain = make(chan []byte)
-	dev.chanToSecond = make(chan []byte)
-	dev.chanFromMain = make(chan []byte)
-	dev.chanFromSecond = make(chan []byte)
+	dev.chanToMain = make(chan MessageServer)
+	dev.chanToSecond = make(chan MessageServer)
+	dev.chanFromMain = make(chan MessageDevice)
+	dev.chanFromSecond = make(chan MessageDevice)
 	dev.errorChan = make(chan interface{})
 	dev.stop = make(chan interface{})
 	dev.serverCMD = make(chan interface{})

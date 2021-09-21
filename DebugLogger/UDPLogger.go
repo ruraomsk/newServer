@@ -9,13 +9,13 @@ import (
 )
 
 func ListenUDP() {
-	pc, err := net.ListenPacket("udp", fmt.Sprintf(":%d", setup.Set.CommServer.PortDebug))
+	pc, err := net.ListenPacket("udp4", fmt.Sprintf(":%d", setup.Set.CommServer.PortDebug))
 	if err != nil {
 		logger.Error.Print("Debug Logger %s", err.Error())
 		return
 	}
 	fmt.Println("DebugLogger ready")
-	buffer := make([]byte, 512)
+	buffer := make([]byte, 256)
 	defer pc.Close()
 	for {
 		for i := range buffer {
@@ -23,6 +23,7 @@ func ListenUDP() {
 		}
 		_, addr, err := pc.ReadFrom(buffer)
 		if err != nil {
+			fmt.Printf("%s %s\n", pc.LocalAddr().String(), err.Error())
 			continue
 		}
 		s := strings.Split(addr.String(), ":")
