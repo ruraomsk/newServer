@@ -1,0 +1,282 @@
+INFO: TIME: 2021/09/27 09:41:39 Start new-server work...
+INFO: TIME: 2021/09/27 09:41:39 Новое соединение 192.168.115.158:52472
+INFO: TIME: 2021/09/27 09:41:39 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 09:41:39 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+ERROR: TIME: 2021/09/27 09:42:09 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52472 read tcp 192.168.115.159:2093->192.168.115.158:52472: i/o timeout
+INFO: TIME: 2021/09/27 09:42:09 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 09:42:09 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 09:42:09 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 09:43:27 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 09:43:27 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 09:43:27 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+ERROR: TIME: 2021/09/27 09:43:57 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52432 read tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 09:43:57 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 09:43:57 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 09:43:57 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 09:46:37 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 09:46:37 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 09:46:37 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+ERROR: TIME: 2021/09/27 09:47:07 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52432 read tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 09:47:07 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 09:47:07 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 09:47:07 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 09:47:09 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 09:47:09 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 09:47:09 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+ERROR: TIME: 2021/09/27 09:47:39 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52432 read tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 09:47:39 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 09:47:39 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 09:47:39 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 09:48:29 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 09:48:29 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 09:48:29 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+ERROR: TIME: 2021/09/27 09:48:59 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52432 read tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 09:48:59 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 09:48:59 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 09:48:59 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 09:50:42 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 09:50:42 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 09:50:42 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+ERROR: TIME: 2021/09/27 09:51:12 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52432 read tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 09:51:12 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 09:51:12 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 09:51:12 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 09:52:52 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 09:52:52 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 09:52:52 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+ERROR: TIME: 2021/09/27 09:53:22 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52432 read tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 09:53:22 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 09:53:22 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 09:53:22 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 09:57:28 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 09:57:28 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 09:57:28 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+ERROR: TIME: 2021/09/27 09:57:58 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52432 read tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 09:57:58 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 09:57:58 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 09:57:58 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 10:01:26 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 10:01:26 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 10:01:26 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+ERROR: TIME: 2021/09/27 10:01:56 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52432 read tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 10:01:56 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 10:01:56 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 10:01:56 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 10:02:47 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 10:02:47 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 10:02:47 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+ERROR: TIME: 2021/09/27 10:03:17 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52432 read tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 10:03:17 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 10:03:17 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 10:03:17 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 10:05:28 Exit ag-server working...
+INFO: TIME: 2021/09/27 10:05:31 Start new-server work...
+INFO: TIME: 2021/09/27 10:05:50 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 10:05:50 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 10:05:50 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+INFO: TIME: 2021/09/27 10:06:03 Получили по главному {"confirm":{"status":true,"error":"No error"}}
+INFO: TIME: 2021/09/27 10:06:03 Пришло от главного 8 {{%!s(int=0)  {{%!s(bool=false)  } {%!s(bool=false)  } {%!s(bool=false)  } {%!s(bool=false)  }} {} {} {%!s(bool=false)  %!s(int=0)}} {%!s(bool=true) No error}}
+INFO: TIME: 2021/09/27 10:09:50 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 10:09:50 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 10:09:50 Очень долго не отвечает 8
+INFO: TIME: 2021/09/27 10:11:21 Новое соединение 192.168.115.158:52433
+INFO: TIME: 2021/09/27 10:11:21 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 10:11:21 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+ERROR: TIME: 2021/09/27 10:11:51 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52433 read tcp 192.168.115.159:2093->192.168.115.158:52433: i/o timeout
+INFO: TIME: 2021/09/27 10:11:51 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 10:11:51 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 10:11:51 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 10:23:06 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 10:23:06 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 10:23:06 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+INFO: TIME: 2021/09/27 10:23:25 Получили по главному {"confirm":{"status":true,"error":"No error"}}
+INFO: TIME: 2021/09/27 10:23:25 Пришло от главного 8 {{%!s(int=0)  {{%!s(bool=false)  } {%!s(bool=false)  } {%!s(bool=false)  } {%!s(bool=false)  }} {} {} {%!s(bool=false)  %!s(int=0)}} {%!s(bool=true) No error}}
+INFO: TIME: 2021/09/27 10:27:06 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 10:27:06 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 10:27:06 Очень долго не отвечает 8
+INFO: TIME: 2021/09/27 10:28:29 Новое соединение 192.168.115.158:52433
+INFO: TIME: 2021/09/27 10:28:29 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 10:28:29 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+ERROR: TIME: 2021/09/27 10:28:59 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52433 read tcp 192.168.115.159:2093->192.168.115.158:52433: i/o timeout
+INFO: TIME: 2021/09/27 10:28:59 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 10:28:59 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 10:28:59 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 15:58:50 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 15:58:50 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 15:58:50 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+ERROR: TIME: 2021/09/27 15:59:20 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52432 read tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 15:59:20 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 15:59:20 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 15:59:20 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 16:03:42 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 16:03:42 Первый  основного {{8 ETH {{false  } {false  } {false  } {false  }} {} {} {false  0}} {false }}
+INFO: TIME: 2021/09/27 16:03:42 Отправляем по главному {"connect":{"status":"","id":167,"interval":0,"channel":{"ip":"192.168.115.159","port":2094}}}
+ERROR: TIME: 2021/09/27 16:04:12 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52432 read tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 16:04:12 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 16:04:12 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 16:04:12 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 16:05:12 Exit ag-server working...
+INFO: TIME: 2021/09/27 16:06:24 Start new-server work...
+INFO: TIME: 2021/09/27 16:07:26 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 16:07:26 Первый  основного {{8 ETH} {false } {0 false 0 0 0 0 {false false false false false false false} {0 0 0 0 false 0 false 0 0 0 0 0}}}
+INFO: TIME: 2021/09/27 16:07:26 Отправляем по главному {"connect":{"status":"Adopt","id":167,"interval":0}}
+INFO: TIME: 2021/09/27 16:07:26 Получили по главному {"confirm":{"status":true,"error":"No error"}}
+INFO: TIME: 2021/09/27 16:07:26 Пришло от главного 8 {{%!s(int=0) } {%!s(bool=true) No error} {%!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) {%!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false)} {%!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0)}}}
+INFO: TIME: 2021/09/27 16:09:40 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 16:09:40 Первый  основного {{8 ETH} {false } {0 false 0 0 0 0 {false false false false false false false} {0 0 0 0 false 0 false 0 0 0 0 0}}}
+INFO: TIME: 2021/09/27 16:09:40 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 16:09:40 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 16:09:40 Отправляем по главному {"connect":{"status":"Adopt","id":167,"interval":0}}
+ERROR: TIME: 2021/09/27 16:10:10 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52432 read tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 16:10:10 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 16:10:10 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 16:10:10 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 16:11:26 Очень долго не отвечает 8
+INFO: TIME: 2021/09/27 16:11:26 Отправляем по главному {"connect":{"status":"","id":0,"interval":0},"command":"give_me_status"}
+ERROR: TIME: 2021/09/27 16:11:26 transport.go:26: При передаче на 8 по адресу 192.168.115.158:52432 write tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 16:11:26 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 16:14:35 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 16:14:35 Первый  основного {{8 ETH} {false } {0 false 0 0 0 0 {false false false false false false false} {0 0 0 0 false 0 false 0 0 0 0 0}}}
+INFO: TIME: 2021/09/27 16:14:35 Отправляем по главному {"connect":{"status":"Adopt","id":167,"interval":0}}
+ERROR: TIME: 2021/09/27 16:15:05 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52432 read tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 16:15:05 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 16:15:05 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 16:15:05 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 16:16:07 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 16:16:07 Первый  основного {{8 ETH} {false } {0 false 0 0 0 0 {false false false false false false false} {0 0 0 0 false 0 false 0 0 0 0 0}}}
+INFO: TIME: 2021/09/27 16:16:07 Отправляем по главному {"connect":{"status":"Adopt","id":167,"interval":0}}
+INFO: TIME: 2021/09/27 16:16:23 Получили по главному {"confirm":{"status":true,"error":"No error"}}
+INFO: TIME: 2021/09/27 16:16:23 Пришло от главного 8 {{%!s(int=0) } {%!s(bool=true) No error} {%!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) {%!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false)} {%!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0)}}}
+INFO: TIME: 2021/09/27 16:19:32 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 16:19:32 Первый  основного {{8 ETH} {false } {0 false 0 0 0 0 {false false false false false false false} {0 0 0 0 false 0 false 0 0 0 0 0}}}
+INFO: TIME: 2021/09/27 16:19:32 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 16:19:32 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 16:19:32 Отправляем по главному {"connect":{"status":"Adopt","id":167,"interval":0}}
+INFO: TIME: 2021/09/27 16:19:32 Получили по главному {"confirm":{"status":true,"error":"No error"}}
+INFO: TIME: 2021/09/27 16:19:32 Пришло от главного 8 {{%!s(int=0) } {%!s(bool=true) No error} {%!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) {%!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false)} {%!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0)}}}
+INFO: TIME: 2021/09/27 16:20:07 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 16:20:07 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 16:20:07 Очень долго не отвечает 8
+INFO: TIME: 2021/09/27 16:20:07 Отправляем по главному {"connect":{"status":"","id":0,"interval":0},"command":"give_me_status"}
+ERROR: TIME: 2021/09/27 16:20:07 transport.go:26: При передаче на 8 по адресу 192.168.115.158:52432 write tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 16:20:07 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 16:23:32 Очень долго не отвечает 8
+INFO: TIME: 2021/09/27 16:23:32 Отправляем по главному {"connect":{"status":"","id":0,"interval":0},"command":"give_me_status"}
+ERROR: TIME: 2021/09/27 16:23:32 transport.go:26: При передаче на 8 по адресу 192.168.115.158:52432 write tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 16:23:32 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 16:44:08 Exit ag-server working...
+INFO: TIME: 2021/09/27 16:44:14 Start new-server work...
+INFO: TIME: 2021/09/27 16:44:20 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 16:44:20 Первый  основного {{8 ETH} {false } {0 false 0 0 0 0 {false false false false false false false} {0 0 0 0 false 0 false 0 0 0 0 0}}}
+INFO: TIME: 2021/09/27 16:44:20 Отправляем по главному {"connect":{"status":"Adopt","id":167,"interval":0}}
+INFO: TIME: 2021/09/27 16:44:21 Получили по главному {"confirm":{"status":true,"error":"No error"}}
+INFO: TIME: 2021/09/27 16:44:21 Пришло от главного 8 {{%!s(int=0) } {%!s(bool=true) No error} {%!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) {%!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false)} {%!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0)}}}
+INFO: TIME: 2021/09/27 16:45:34 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 16:45:34 Первый  основного {{8 ETH} {false } {0 false 0 0 0 0 {false false false false false false false} {0 0 0 0 false 0 false 0 0 0 0 0}}}
+INFO: TIME: 2021/09/27 16:45:34 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 16:45:34 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 16:45:34 Отправляем по главному {"connect":{"status":"Adopt","id":167,"interval":0}}
+INFO: TIME: 2021/09/27 16:45:46 Получили по главному {"confirm":{"status":true,"error":"No error"}}
+INFO: TIME: 2021/09/27 16:45:46 Пришло от главного 8 {{%!s(int=0) } {%!s(bool=true) No error} {%!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) {%!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false)} {%!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0)}}}
+INFO: TIME: 2021/09/27 16:48:20 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 16:48:20 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 16:48:20 Очень долго не отвечает 8
+INFO: TIME: 2021/09/27 16:48:20 Отправляем по главному {"connect":{"status":"","id":0,"interval":0},"command":"give_me_status"}
+ERROR: TIME: 2021/09/27 16:48:20 transport.go:26: При передаче на 8 по адресу 192.168.115.158:52432 write tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 16:48:20 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 16:49:34 Очень долго не отвечает 8
+INFO: TIME: 2021/09/27 16:49:34 Отправляем по главному {"connect":{"status":"","id":0,"interval":0},"command":"give_me_status"}
+ERROR: TIME: 2021/09/27 16:49:34 transport.go:26: При передаче на 8 по адресу 192.168.115.158:52432 write tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 16:49:34 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 16:49:49 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 16:49:49 Первый  основного {{8 ETH} {false } {0 false 0 0 0 0 {false false false false false false false} {0 0 0 0 false 0 false 0 0 0 0 0}}}
+INFO: TIME: 2021/09/27 16:49:49 Отправляем по главному {"connect":{"status":"Adopt","id":167,"interval":0}}
+INFO: TIME: 2021/09/27 16:49:49 Получили по главному {"confirm":{"status":true,"error":"No error"}}
+INFO: TIME: 2021/09/27 16:49:49 Пришло от главного 8 {{%!s(int=0) } {%!s(bool=true) No error} {%!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) {%!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false)} {%!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0)}}}
+INFO: TIME: 2021/09/27 16:53:49 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 16:53:49 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 16:53:49 Очень долго не отвечает 8
+INFO: TIME: 2021/09/27 16:53:49 Отправляем по главному {"connect":{"status":"","id":0,"interval":0},"command":"give_me_status"}
+ERROR: TIME: 2021/09/27 16:53:49 transport.go:26: При передаче на 8 по адресу 192.168.115.158:52432 write tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 16:53:49 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 16:58:10 Новое соединение для логирования 192.168.115.159:45214
+INFO: TIME: 2021/09/27 16:59:38 Exit ag-server working...
+INFO: TIME: 2021/09/27 16:59:46 Start new-server work...
+INFO: TIME: 2021/09/27 16:59:54 Новое соединение для логирования 192.168.115.159:45222
+INFO: TIME: 2021/09/27 17:00:46 Exit ag-server working...
+INFO: TIME: 2021/09/27 17:00:54 Start new-server work...
+INFO: TIME: 2021/09/27 17:00:58 Новое соединение для логирования 192.168.115.159:45228
+INFO: TIME: 2021/09/27 17:02:02 Exit ag-server working...
+INFO: TIME: 2021/09/27 17:02:09 Start new-server work...
+INFO: TIME: 2021/09/27 17:02:14 Новое соединение для логирования 192.168.115.159:45242
+INFO: TIME: 2021/09/27 17:02:51 Exit ag-server working...
+INFO: TIME: 2021/09/27 17:02:59 Start new-server work...
+INFO: TIME: 2021/09/27 17:03:04 Новое соединение для логирования 192.168.115.159:45246
+ERROR: TIME: 2021/09/27 17:03:38 UDPLogger.go:18: При чтении лога с 192.168.115.159:45246 EOF
+INFO: TIME: 2021/09/27 17:03:42 Новое соединение для логирования 192.168.115.159:45250
+ERROR: TIME: 2021/09/27 17:03:55 UDPLogger.go:18: При чтении лога с 192.168.115.159:45250 EOF
+INFO: TIME: 2021/09/27 17:11:05 Новое соединение 192.168.115.158:52432
+INFO: TIME: 2021/09/27 17:11:05 Первый  основного {{8 ETH} {false } {0 false 0 0 0 0 {false false false false false false false} {0 0 0 0 false 0 false 0 0 0 0 0}}}
+INFO: TIME: 2021/09/27 17:11:05 Отправляем по главному {"connect":{"status":"Adopt","id":167,"interval":0}}
+INFO: TIME: 2021/09/27 17:11:05 Получили по главному {"confirm":{"status":true,"error":"No error"}}
+INFO: TIME: 2021/09/27 17:11:05 Пришло от главного 8 {{%!s(int=0) } {%!s(bool=true) No error} {%!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) {%!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false)} {%!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0)}}}
+INFO: TIME: 2021/09/27 17:11:39 Новое соединение для логирования 192.168.115.158:52432
+INFO: TIME: 2021/09/27 17:12:08 Новое соединение 192.168.115.158:52433
+INFO: TIME: 2021/09/27 17:12:08 Первый  основного {{8 ETH} {false } {0 false 0 0 0 0 {false false false false false false false} {0 0 0 0 false 0 false 0 0 0 0 0}}}
+INFO: TIME: 2021/09/27 17:12:08 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 17:12:08 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 17:12:08 Отправляем по главному {"connect":{"status":"Adopt","id":167,"interval":0}}
+ERROR: TIME: 2021/09/27 17:12:38 transport.go:33: При приеме ответа от 8 по адресу 192.168.115.158:52433 read tcp 192.168.115.159:2093->192.168.115.158:52433: i/o timeout
+INFO: TIME: 2021/09/27 17:12:38 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 17:12:38 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 17:12:38 Устройство 8 отключено из-за ошибок
+ERROR: TIME: 2021/09/27 17:14:19 UDPLogger.go:18: При чтении лога с 192.168.115.158:52432 read tcp 192.168.115.159:2095->192.168.115.158:52432: read: connection reset by peer
+INFO: TIME: 2021/09/27 17:14:19 Новое соединение для логирования 192.168.115.158:52432
+INFO: TIME: 2021/09/27 17:14:20 Новое соединение 192.168.115.158:52433
+INFO: TIME: 2021/09/27 17:14:20 Первый  основного {{8 ETH} {false } {0 false 0 0 0 0 {false false false false false false false} {0 0 0 0 false 0 false 0 0 0 0 0}}}
+INFO: TIME: 2021/09/27 17:14:20 Отправляем по главному {"connect":{"status":"Adopt","id":167,"interval":0}}
+INFO: TIME: 2021/09/27 17:14:27 Получили по главному {"confirm":{"status":true,"error":"No error"}}
+INFO: TIME: 2021/09/27 17:14:27 Пришло от главного 8 {{%!s(int=0) } {%!s(bool=true) No error} {%!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) {%!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false)} {%!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0)}}}
+INFO: TIME: 2021/09/27 17:15:05 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 17:15:05 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 17:15:05 Очень долго не отвечает 8
+INFO: TIME: 2021/09/27 17:15:05 Отправляем по главному {"connect":{"status":"","id":0,"interval":0},"command":"give_me_status"}
+ERROR: TIME: 2021/09/27 17:15:05 transport.go:26: При передаче на 8 по адресу 192.168.115.158:52432 write tcp 192.168.115.159:2093->192.168.115.158:52432: i/o timeout
+INFO: TIME: 2021/09/27 17:15:05 Устройство 8 отключено из-за ошибок
+ERROR: TIME: 2021/09/27 17:16:50 UDPLogger.go:18: При чтении лога с 192.168.115.158:52432 read tcp 192.168.115.159:2095->192.168.115.158:52432: read: connection reset by peer
+INFO: TIME: 2021/09/27 17:16:50 Новое соединение для логирования 192.168.115.158:52432
+INFO: TIME: 2021/09/27 17:16:51 Новое соединение 192.168.115.158:52433
+INFO: TIME: 2021/09/27 17:16:51 Первый  основного {{8 ETH} {false } {0 false 0 0 0 0 {false false false false false false false} {0 0 0 0 false 0 false 0 0 0 0 0}}}
+INFO: TIME: 2021/09/27 17:16:51 Отправляем по главному {"connect":{"status":"Adopt","id":167,"interval":0}}
+INFO: TIME: 2021/09/27 17:16:51 Получили по главному {"confirm":{"status":true,"error":"No error"}}
+INFO: TIME: 2021/09/27 17:16:51 Пришло от главного 8 {{%!s(int=0) } {%!s(bool=true) No error} {%!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) {%!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false)} {%!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0)}}}
+INFO: TIME: 2021/09/27 17:18:20 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 17:18:20 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 17:18:20 Очень долго не отвечает 8
+INFO: TIME: 2021/09/27 17:18:20 Отправляем по главному {"connect":{"status":"","id":0,"interval":0},"command":"give_me_status"}
+ERROR: TIME: 2021/09/27 17:18:20 transport.go:26: При передаче на 8 по адресу 192.168.115.158:52433 write tcp 192.168.115.159:2093->192.168.115.158:52433: i/o timeout
+INFO: TIME: 2021/09/27 17:18:20 Устройство 8 отключено из-за ошибок
+INFO: TIME: 2021/09/27 17:18:57 Приказано умереть 8
+INFO: TIME: 2021/09/27 17:19:02 Exit ag-server working...
+INFO: TIME: 2021/09/27 17:23:18 Start new-server work...
+INFO: TIME: 2021/09/27 17:23:32 Новое соединение для логирования 192.168.115.158:52432
+INFO: TIME: 2021/09/27 17:23:33 Новое соединение 192.168.115.158:52433
+INFO: TIME: 2021/09/27 17:23:33 Первый  основного {{8 ETH} {false } {0 false 0 0 0 0 {false false false false false false false} {0 0 0 0 false 0 false 0 0 0 0 0}}}
+INFO: TIME: 2021/09/27 17:23:33 Отправляем по главному {"connect":{"status":"Adopt","id":167,"interval":0}}
+INFO: TIME: 2021/09/27 17:23:39 Получили по главному {"confirm":{"status":true,"error":"No error"}}
+INFO: TIME: 2021/09/27 17:23:39 Пришло от главного 8 {{%!s(int=0) } {%!s(bool=true) No error} {%!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) {%!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false)} {%!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0)}}}
+ERROR: TIME: 2021/09/27 17:24:37 UDPLogger.go:18: При чтении лога с 192.168.115.158:52432 read tcp 192.168.115.159:2095->192.168.115.158:52432: read: connection reset by peer
+INFO: TIME: 2021/09/27 17:24:37 Новое соединение для логирования 192.168.115.158:52432
+INFO: TIME: 2021/09/27 17:24:38 Новое соединение 192.168.115.158:52433
+INFO: TIME: 2021/09/27 17:24:38 Первый  основного {{8 ETH} {false } {0 false 0 0 0 0 {false false false false false false false} {0 0 0 0 false 0 false 0 0 0 0 0}}}
+INFO: TIME: 2021/09/27 17:24:38 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 17:24:38 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 17:24:38 Отправляем по главному {"connect":{"status":"Adopt","id":167,"interval":0}}
+INFO: TIME: 2021/09/27 17:24:41 Получили по главному {"confirm":{"status":true,"error":"No error"}}
+INFO: TIME: 2021/09/27 17:24:41 Пришло от главного 8 {{%!s(int=0) } {%!s(bool=true) No error} {%!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) {%!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false) %!s(bool=false)} {%!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(bool=false) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0) %!s(int=0)}}}
+INFO: TIME: 2021/09/27 17:24:47 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/27 17:24:47 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/27 17:24:47 Приказано умереть 8
+INFO: TIME: 2021/09/27 17:24:52 Exit ag-server working...
+INFO: TIME: 2021/09/27 17:24:55 Start new-server work...
+INFO: TIME: 2021/09/27 17:26:38 Exit ag-server working...

@@ -1,40 +1,36 @@
 package server
 
 import (
-	"github.com/ruraomsk/newServer/setup"
+	"github.com/ruraomsk/ag-server/pudge"
 )
 
-type MessageServerInfo struct {
-	Status   string  `json:"status"`
-	ID       int     `json:"id"`
-	Interval int     `json:"interval"`
-	Channel  Channel `json:"channel"`
+type DeviceInfo struct {
+	ID    int    `json:"id"`
+	Type  string `json:"type"` //ETH или GPRS
+	Ready bool   `json:"ready"`
 }
-type Channel struct {
-	IP   string `json:"ip"`
-	Port int    `json:"port"`
-}
+
 type Confirm struct {
 	Status bool   `json:"status"`
 	Error  string `json:"error"`
 }
-type MessageServer struct {
-	Connect MessageServerInfo `json:"connect,omitempty"`
-}
 type MessageDevice struct {
-	Connect DeviceInfo `json:"connect,omitempty"`
-	Confirm Confirm    `json:"confirm,omitempty"`
+	Connect DeviceInfo   `json:"connect,omitempty"`
+	Confirm Confirm      `json:"confirm,omitempty"`
+	Status  DeviceStatus `json:"status,omitempty"`
+}
+type DeviceStatus struct {
+	Ready    bool                  `json:"ready"`
+	TechMode int                   `json:"tech"`
+	Base     bool                  `json:"base"`
+	PK       int                   `json:"pk"`
+	CK       int                   `json:"ck"`
+	NK       int                   `json:"nk"`
+	TMax     int                   `json:"tmax"`
+	ComDU    pudge.StatusCommandDU `json:"comdu"`
+	DK       pudge.DK              `json:"dk"`
 }
 
-func newMessageServerInfo() *MessageServerInfo {
-	m := new(MessageServerInfo)
-	m.Channel = Channel{IP: setup.Set.CommServer.IPDevice, Port: setup.Set.CommServer.PortDevice}
-	m.ID = setup.Set.CommServer.ID
-	return m
-}
-func (m *MessageServerInfo) Adopt() {
-	m.Status = "Adopt"
-}
-func (m *MessageServerInfo) Reject() {
-	m.Status = "Reject"
+func giveMeStatus() string {
+	return "give_me_status"
 }

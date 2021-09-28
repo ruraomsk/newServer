@@ -1,34 +1,44 @@
 package DebugLogger
 
 import (
+	"bufio"
 	"fmt"
 	"github.com/ruraomsk/TLServer/logger"
 	"github.com/ruraomsk/newServer/setup"
 	"net"
 	"strings"
+	"time"
 )
 
+func workerLogger(socket net.Conn) {
+	defer socket.Close()
+	socket.SetReadDeadline(time.Time{})
+	reader := bufio.NewReader(socket)
+	logger.Info.Printf("Новое соединение для логирования %s", socket.RemoteAddr().String())
+	for {
+		c, err := reader.ReadString('\n')
+		if err != nil {
+			logger.Error.Printf("При чтении лога с %s %s", socket.RemoteAddr().String(), err.Error())
+			return
+		}
+		c = strings.Replace(c, "\n", "", -1)
+		c = strings.Replace(c, "\r", "", -1)
+		fmt.Printf("%s-%s\n", socket.RemoteAddr().String(), string(c))
+	}
+}
 func ListenUDP() {
-	pc, err := net.ListenPacket("udp4", fmt.Sprintf(":%d", setup.Set.CommServer.PortDebug))
+	ln, err := net.Listen("tcp", fmt.Sprintf(":%d", setup.Set.CommServer.PortDebug))
 	if err != nil {
 		logger.Error.Print("Debug Logger %s", err.Error())
 		return
 	}
 	fmt.Println("DebugLogger ready")
-	buffer := make([]byte, 256)
-	defer pc.Close()
 	for {
-		for i := range buffer {
-			buffer[i] = 0
-		}
-		_, addr, err := pc.ReadFrom(buffer)
+		socket, err := ln.Accept()
 		if err != nil {
-			fmt.Printf("%s %s\n", pc.LocalAddr().String(), err.Error())
+			logger.Error.Printf("Ошибка входа по порту %d", setup.Set.CommServer.PortDevice)
 			continue
 		}
-		s := strings.Split(addr.String(), ":")
-		instring := s[0] + ":" + string(buffer)
-		instring = strings.Replace(instring, "\n\r", "", 1)
-		fmt.Println(instring)
+		go workerLogger(socket)
 	}
 }

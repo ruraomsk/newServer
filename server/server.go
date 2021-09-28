@@ -88,13 +88,9 @@ func workerListenDevice(socket net.Conn) {
 	dev.full = true
 	go deviceToServer(dev)
 	mutex.Unlock()
-	go serverToDevice(dev)
-	var r MessageServer
-	r.Connect = *newMessageServerInfo()
-	b, _ := json.Marshal(r)
-	b = append(b, '\n')
-	logger.Info.Printf("Отправляем по резервному %s", string(b))
-	_, _ = writer.Write(b)
+	s := "ok,167,200\n"
+	logger.Info.Printf("Отправляем по резервному %s", s)
+	_, _ = writer.WriteString(s)
 	err = writer.Flush()
 	if err != nil {
 		logger.Error.Printf("При передаче на %d по адресу %s %s", dev.DeviceInfo.ID, dev.socketMain.RemoteAddr().String(), err.Error())
@@ -143,9 +139,7 @@ func workerSendDevice(socket net.Conn) {
 		dev := newDevice(md, socket)
 		devices[md.ID] = dev
 		go serverToDevice(dev)
-		var r MessageServer
-		r.Connect = *newMessageServerInfo()
-		dev.chanToMain <- r
+		dev.chanToMain <- "ok,167,200"
 		for {
 			select {
 			case message := <-dev.chanFromMain:
@@ -153,8 +147,9 @@ func workerSendDevice(socket net.Conn) {
 			case message := <-dev.chanFromSecond:
 				logger.Info.Printf("Пришло от резервного %d %s", dev.DeviceInfo.ID, message)
 			case <-dev.timer.C:
+				dev.chanToMain <- giveMeStatus()
 				//Прошло много времени со времени последнего обмена с устройством
-				deleteDevice(md.ID)
+				//deleteDevice(md.ID)
 				logger.Info.Printf("Очень долго не отвечает %d", dev.DeviceInfo.ID)
 			case <-context.Done():
 				deleteDevice(md.ID)

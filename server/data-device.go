@@ -14,9 +14,9 @@ type DeviceControl struct {
 	stop           chan interface{} //По этому каналу приходит команды остановиться
 	serverCMD      chan interface{} //По этому каналу приходят команды от системы
 	errorChan      chan interface{} //Если программы ввода/вывода находят ошибку
-	chanToMain     chan MessageServer
+	chanToMain     chan string
 	chanFromMain   chan MessageDevice
-	chanToSecond   chan MessageServer
+	chanToSecond   chan string
 	chanFromSecond chan MessageDevice
 	interval       time.Duration //Интервал времени для проверки состояния устройства
 	DeviceInfo     DeviceInfo
@@ -33,15 +33,15 @@ func (d *DeviceControl) restartTimer() {
 }
 func newDevice(devinfo DeviceInfo, socket net.Conn) *DeviceControl {
 	dev := new(DeviceControl)
-	dev.chanToMain = make(chan MessageServer)
-	dev.chanToSecond = make(chan MessageServer)
+	dev.chanToMain = make(chan string)
+	dev.chanToSecond = make(chan string)
 	dev.chanFromMain = make(chan MessageDevice)
 	dev.chanFromSecond = make(chan MessageDevice)
 	dev.errorChan = make(chan interface{})
 	dev.stop = make(chan interface{})
 	dev.serverCMD = make(chan interface{})
 	dev.DeviceInfo = devinfo
-	dev.interval = 4 * 60
+	dev.interval = 120
 	dev.socketMain = socket
 	dev.full = false
 	dev.deleted = true
@@ -68,14 +68,6 @@ func (d *DeviceControl) closeAll() {
 	logger.Info.Printf("Обмен с устройством %d %s прекращен", d.DeviceInfo.ID, d.DeviceInfo.Type)
 }
 
-type DeviceInfo struct {
-	ID        int       `json:"id"`
-	Type      string    `json:"type"` //ETH или GPRS
-	OnBoard   OnBoard   `json:"onboard,omitempty"`
-	Software  SoftWare  `json:"software,omitempty"`
-	Secret    Secret    `json:"secret,omitempty"`
-	DebugInfo DebugInfo `json:"debug,omitempty"`
-}
 type OnBoard struct {
 	GPRS GPRSInfo `json:"gprs,omitempty"`
 	GPS  GPSInfo  `json:"gps,omitempty"`

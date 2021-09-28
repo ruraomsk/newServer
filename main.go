@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/ruraomsk/newServer/DebugLogger"
 	"github.com/ruraomsk/newServer/server"
 	"runtime"
 	"time"
@@ -37,7 +36,7 @@ func main() {
 	fmt.Println("Start new-server work...")
 	extcon.BackgroundInit()
 
-	go DebugLogger.ListenUDP()
+	//go DebugLogger.ListenUDP()
 
 	stop := make(chan interface{})
 	go server.MainServer(stop)
