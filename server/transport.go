@@ -16,8 +16,8 @@ func serverToDevice(dev *DeviceControl) {
 			return
 		case s := <-dev.chanToMain:
 			logger.Info.Printf("Отправляем по главному %s\n", s)
-			_ = dev.socketMain.SetReadDeadline(time.Now().Add(time.Second * 30))
-			_ = dev.socketMain.SetWriteDeadline(time.Now().Add(time.Second * 30))
+			_ = dev.socketMain.SetReadDeadline(time.Now().Add(time.Second * 10))
+			_ = dev.socketMain.SetWriteDeadline(time.Now().Add(time.Second * 10))
 			writer.WriteString(s)
 			writer.WriteString("\n")
 			err := writer.Flush()
@@ -26,7 +26,7 @@ func serverToDevice(dev *DeviceControl) {
 				dev.errorChan <- 1
 				return
 			}
-			dev.restartTimer()
+			dev.restartTimer1()
 			c, err := reader.ReadBytes('\n')
 			if err != nil {
 				logger.Error.Printf("При приеме ответа от %d по адресу %s %s", dev.DeviceInfo.ID, dev.socketMain.RemoteAddr().String(), err.Error())
@@ -59,12 +59,12 @@ func deviceToServer(dev *DeviceControl) {
 		var r MessageDevice
 		json.Unmarshal(c, &r)
 		dev.chanFromSecond <- r
-		dev.restartTimer()
+		dev.restartTimer2()
 		select {
 		case <-dev.stop:
 			return
 		case s := <-dev.chanToSecond:
-			logger.Info.Printf("Отправляем по резервному %s", s)
+			logger.Info.Printf("Отправляем по второму %s", s)
 			_ = dev.socketSecond.SetReadDeadline(time.Time{}) //Без таймаута чтение
 			_ = dev.socketSecond.SetWriteDeadline(time.Now().Add(time.Second * 10))
 			_, _ = writer.WriteString(s)
@@ -75,7 +75,7 @@ func deviceToServer(dev *DeviceControl) {
 				dev.errorChan <- 1
 				return
 			}
-			dev.restartTimer()
+			dev.restartTimer2()
 		}
 	}
 }

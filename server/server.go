@@ -14,6 +14,7 @@ import (
 
 var devices map[int]*DeviceControl
 var mutex sync.Mutex
+var delay = 120
 
 func secondServer(stop chan interface{}) {
 	ln, err := net.Listen("tcp", fmt.Sprintf(":%d", setup.Set.CommServer.PortDevice))
@@ -56,8 +57,7 @@ func workerListenDevice(socket net.Conn) {
 
 	reader := bufio.NewReader(socket)
 	writer := bufio.NewWriter(socket)
-	logger.Info.Printf("Новое соединение для прослушивания %s", socket.RemoteAddr().String())
-	//читаем что это за устройство
+	logger.Info.Printf("Новое соединение для второго канала %s", socket.RemoteAddr().String())
 
 	c, err := reader.ReadBytes('\n')
 	if err != nil {
@@ -66,7 +66,7 @@ func workerListenDevice(socket net.Conn) {
 		return
 	}
 	c = c[:len(c)-1]
-	logger.Info.Printf("Первая строка резервного %s", string(c))
+	logger.Info.Printf("Первая строка второго %s", string(c))
 	var md MessageDevice
 	err = json.Unmarshal(c, &md)
 	if err != nil {
@@ -74,7 +74,7 @@ func workerListenDevice(socket net.Conn) {
 		_ = socket.Close()
 		return
 	}
-	logger.Info.Printf("Первый  резервного %v", md)
+	//logger.Info.Printf("Первый  резервного %v", md)
 
 	mutex.Lock()
 	dev, is := devices[md.Connect.ID]
@@ -88,7 +88,8 @@ func workerListenDevice(socket net.Conn) {
 	dev.full = true
 	go deviceToServer(dev)
 	mutex.Unlock()
-	s := "ok,167,200\n"
+
+	s := fmt.Sprintf("ok,127,%d\n", delay)
 	logger.Info.Printf("Отправляем по резервному %s", s)
 	_, _ = writer.WriteString(s)
 	err = writer.Flush()
@@ -139,18 +140,22 @@ func workerSendDevice(socket net.Conn) {
 		dev := newDevice(md, socket)
 		devices[md.ID] = dev
 		go serverToDevice(dev)
-		dev.chanToMain <- "ok,167,200"
+		dev.chanToMain <- fmt.Sprintf("ok,127,%d\n", delay)
 		for {
 			select {
 			case message := <-dev.chanFromMain:
 				logger.Info.Printf("Пришло от главного %d %s", dev.DeviceInfo.ID, message)
 			case message := <-dev.chanFromSecond:
 				logger.Info.Printf("Пришло от резервного %d %s", dev.DeviceInfo.ID, message)
-			case <-dev.timer.C:
+				dev.chanToSecond <- "ok"
+			case <-dev.timer1.C:
+				logger.Info.Printf("KEEP Alive для %d", dev.DeviceInfo.ID)
 				dev.chanToMain <- giveMeStatus()
 				//Прошло много времени со времени последнего обмена с устройством
 				//deleteDevice(md.ID)
+			case <-dev.timer2.C:
 				logger.Info.Printf("Очень долго не отвечает %d", dev.DeviceInfo.ID)
+				deleteDevice(md.ID)
 			case <-context.Done():
 				deleteDevice(md.ID)
 				logger.Info.Printf("Приказано умереть %d", dev.DeviceInfo.ID)

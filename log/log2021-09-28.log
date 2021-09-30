@@ -890,3 +890,17 @@ INFO: TIME: 2021/09/28 16:26:29 Очень долго не отвечает 8
 INFO: TIME: 2021/09/28 16:26:29 Отправляем по главному give_me_status
 INFO: TIME: 2021/09/28 16:26:29 Получили по главному {"status":{"ready":true,"tech":1,"base":true,"pk":1,"ck":1,"nk":1,"tmax":1,"comdu":{"IsPK":true,"IsCK":true,"IsNK":true,"IsDUDK1":true,"IsDUDK2":true,"IsReqSFDK1":true,"IsReqSFDK2":true},"dk":{"rdk":1,"fdk":2,"ddk":3,"edk":4,"pdk":true,"eedk":4,"odk":true,"ldk":5,"ftudk":4,"tdk":6,"ftsdk":5,"ttcdk":5}}}
 INFO: TIME: 2021/09/28 16:26:29 Пришло от главного 8 {{%!s(int=0)  %!s(bool=false)} {%!s(bool=false) } {%!s(bool=true) %!s(int=1) %!s(bool=true) %!s(int=1) %!s(int=1) %!s(int=1) %!s(int=1) {%!s(bool=true) %!s(bool=true) %!s(bool=true) %!s(bool=true) %!s(bool=true) %!s(bool=true) %!s(bool=true)} {%!s(int=1) %!s(int=2) %!s(int=3) %!s(int=4) %!s(bool=true) %!s(int=4) %!s(bool=true) %!s(int=5) %!s(int=4) %!s(int=6) %!s(int=5) %!s(int=5)}}}
+INFO: TIME: 2021/09/28 16:28:29 Очень долго не отвечает 8
+INFO: TIME: 2021/09/28 16:28:29 Отправляем по главному give_me_status
+INFO: TIME: 2021/09/28 16:28:29 Получили по главному {"status":{"ready":true,"tech":1,"base":true,"pk":1,"ck":1,"nk":1,"tmax":1,"comdu":{"IsPK":true,"IsCK":true,"IsNK":true,"IsDUDK1":true,"IsDUDK2":true,"IsReqSFDK1":true,"IsReqSFDK2":true},"dk":{"rdk":1,"fdk":2,"ddk":3,"edk":4,"pdk":true,"eedk":4,"odk":true,"ldk":5,"ftudk":4,"tdk":6,"ftsdk":5,"ttcdk":5}}}
+INFO: TIME: 2021/09/28 16:28:29 Пришло от главного 8 {{%!s(int=0)  %!s(bool=false)} {%!s(bool=false) } {%!s(bool=true) %!s(int=1) %!s(bool=true) %!s(int=1) %!s(int=1) %!s(int=1) %!s(int=1) {%!s(bool=true) %!s(bool=true) %!s(bool=true) %!s(bool=true) %!s(bool=true) %!s(bool=true) %!s(bool=true)} {%!s(int=1) %!s(int=2) %!s(int=3) %!s(int=4) %!s(bool=true) %!s(int=4) %!s(bool=true) %!s(int=5) %!s(int=4) %!s(int=6) %!s(int=5) %!s(int=5)}}}
+INFO: TIME: 2021/09/28 16:30:29 Очень долго не отвечает 8
+INFO: TIME: 2021/09/28 16:30:29 Отправляем по главному give_me_status
+INFO: TIME: 2021/09/28 16:30:29 Получили по главному {"status":{"ready":true,"tech":1,"base":true,"pk":1,"ck":1,"nk":1,"tmax":1,"comdu":{"IsPK":true,"IsCK":true,"IsNK":true,"IsDUDK1":true,"IsDUDK2":true,"IsReqSFDK1":true,"IsReqSFDK2":true},"dk":{"rdk":1,"fdk":2,"ddk":3,"edk":4,"pdk":true,"eedk":4,"odk":true,"ldk":5,"ftudk":4,"tdk":6,"ftsdk":5,"ttcdk":5}}}
+INFO: TIME: 2021/09/28 16:30:29 Пришло от главного 8 {{%!s(int=0)  %!s(bool=false)} {%!s(bool=false) } {%!s(bool=true) %!s(int=1) %!s(bool=true) %!s(int=1) %!s(int=1) %!s(int=1) %!s(int=1) {%!s(bool=true) %!s(bool=true) %!s(bool=true) %!s(bool=true) %!s(bool=true) %!s(bool=true) %!s(bool=true)} {%!s(int=1) %!s(int=2) %!s(int=3) %!s(int=4) %!s(bool=true) %!s(int=4) %!s(bool=true) %!s(int=5) %!s(int=4) %!s(int=6) %!s(int=5) %!s(int=5)}}}
+INFO: TIME: 2021/09/28 16:32:29 Очень долго не отвечает 8
+INFO: TIME: 2021/09/28 16:32:29 Отправляем по главному give_me_status
+ERROR: TIME: 2021/09/28 16:32:59 transport.go:32: При приеме ответа от 8 по адресу 192.168.115.158:52433 read tcp 192.168.115.159:2093->192.168.115.158:52433: i/o timeout
+INFO: TIME: 2021/09/28 16:32:59 Обмен с устройством 8 ETH прекращается
+INFO: TIME: 2021/09/28 16:32:59 Обмен с устройством 8 ETH прекращен
+INFO: TIME: 2021/09/28 16:32:59 Устройство 8 отключено из-за ошибок

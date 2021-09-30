@@ -20,17 +20,26 @@ type DeviceControl struct {
 	chanFromSecond chan MessageDevice
 	interval       time.Duration //Интервал времени для проверки состояния устройства
 	DeviceInfo     DeviceInfo
-	timer          *time.Timer //Для вычисления не выхода на связь
-	full           bool
-	deleted        bool
+	timer1         *time.Timer //Для вычисления не выхода на связь
+	timer2         *time.Timer //Для вычисления не выхода на связь
+
+	full    bool
+	deleted bool
 }
 
-func (d *DeviceControl) restartTimer() {
+func (d *DeviceControl) restartTimer1() {
 	d.mutex.Lock()
 	defer d.mutex.Unlock()
-	d.timer.Stop()
-	d.timer = time.NewTimer(d.interval * time.Second)
+	d.timer1.Stop()
+	d.timer1 = time.NewTimer(d.interval * time.Second)
 }
+func (d *DeviceControl) restartTimer2() {
+	d.mutex.Lock()
+	defer d.mutex.Unlock()
+	d.timer2.Stop()
+	d.timer2 = time.NewTimer(d.interval * time.Second)
+}
+
 func newDevice(devinfo DeviceInfo, socket net.Conn) *DeviceControl {
 	dev := new(DeviceControl)
 	dev.chanToMain = make(chan string)
@@ -41,11 +50,12 @@ func newDevice(devinfo DeviceInfo, socket net.Conn) *DeviceControl {
 	dev.stop = make(chan interface{})
 	dev.serverCMD = make(chan interface{})
 	dev.DeviceInfo = devinfo
-	dev.interval = 120
+	dev.interval = time.Duration(delay)
 	dev.socketMain = socket
 	dev.full = false
 	dev.deleted = true
-	dev.timer = time.NewTimer(dev.interval * time.Second)
+	dev.timer1 = time.NewTimer(dev.interval * time.Second)
+	dev.timer2 = time.NewTimer(dev.interval * time.Second)
 	return dev
 }
 func (d *DeviceControl) closeAll() {
@@ -55,8 +65,12 @@ func (d *DeviceControl) closeAll() {
 		close(d.chanToSecond)
 		close(d.chanFromMain)
 		close(d.chanFromSecond)
+		d.socketMain.SetWriteDeadline(time.Now().Add(1 * time.Second))
+		d.socketMain.Write([]byte("stop\n"))
 		_ = d.socketMain.Close()
 		if d.full {
+			d.socketSecond.SetWriteDeadline(time.Now().Add(1 * time.Second))
+			d.socketSecond.Write([]byte("stop\n"))
 			_ = d.socketSecond.Close()
 		}
 		d.deleted = true
