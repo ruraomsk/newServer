@@ -1,13 +1,14 @@
 package server
 
 import (
+	"fmt"
 	"github.com/ruraomsk/ag-server/pudge"
+	"time"
 )
 
 type DeviceInfo struct {
-	ID    int    `json:"id"`
-	Type  string `json:"type"` //ETH или GPRS
-	Ready bool   `json:"ready"`
+	ID   int    `json:"id"`
+	Type string `json:"type"` //ETH или GPRS
 }
 
 type Confirm struct {
@@ -20,7 +21,6 @@ type MessageDevice struct {
 	Status  DeviceStatus `json:"status,omitempty"`
 }
 type DeviceStatus struct {
-	Ready    bool                  `json:"ready"`
 	TechMode int                   `json:"tech"`
 	Base     bool                  `json:"base"`
 	PK       int                   `json:"pk"`
@@ -32,5 +32,5 @@ type DeviceStatus struct {
 }
 
 func giveMeStatus() string {
-	return "give_me_status"
+	return fmt.Sprintf("give_me_status,%d", time.Now().Unix())
 }

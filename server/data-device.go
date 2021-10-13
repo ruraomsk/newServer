@@ -3,21 +3,23 @@ package server
 import (
 	"github.com/ruraomsk/TLServer/logger"
 	"net"
+	"strconv"
+	"strings"
 	"sync"
 	"time"
 )
 
 type DeviceControl struct {
 	mutex          sync.Mutex
-	socketMain     net.Conn         //Соединение по которому сервер шлет свои команды устройству
-	socketSecond   net.Conn         //Соединение по которому устройства шлет свои внеочередные сообщения
+	socketMain     *net.Conn        //Соединение по которому сервер шлет свои команды устройству
+	socketSecond   *net.Conn        //Соединение по которому устройства шлет свои внеочередные сообщения
 	stop           chan interface{} //По этому каналу приходит команды остановиться
 	serverCMD      chan interface{} //По этому каналу приходят команды от системы
 	errorChan      chan interface{} //Если программы ввода/вывода находят ошибку
 	chanToMain     chan string
-	chanFromMain   chan MessageDevice
+	chanFromMain   chan string
 	chanToSecond   chan string
-	chanFromSecond chan MessageDevice
+	chanFromSecond chan string
 	interval       time.Duration //Интервал времени для проверки состояния устройства
 	DeviceInfo     DeviceInfo
 	timer1         *time.Timer //Для вычисления не выхода на связь
@@ -40,12 +42,12 @@ func (d *DeviceControl) restartTimer2() {
 	d.timer2 = time.NewTimer(d.interval * time.Second)
 }
 
-func newDevice(devinfo DeviceInfo, socket net.Conn) *DeviceControl {
+func newDevice(devinfo DeviceInfo, socket *net.Conn) *DeviceControl {
 	dev := new(DeviceControl)
 	dev.chanToMain = make(chan string)
-	dev.chanToSecond = make(chan string)
-	dev.chanFromMain = make(chan MessageDevice)
-	dev.chanFromSecond = make(chan MessageDevice)
+	dev.chanToSecond = make(chan string, 100)
+	dev.chanFromMain = make(chan string, 100)
+	dev.chanFromSecond = make(chan string, 100)
 	dev.errorChan = make(chan interface{})
 	dev.stop = make(chan interface{})
 	dev.serverCMD = make(chan interface{})
@@ -65,13 +67,13 @@ func (d *DeviceControl) closeAll() {
 		close(d.chanToSecond)
 		close(d.chanFromMain)
 		close(d.chanFromSecond)
-		d.socketMain.SetWriteDeadline(time.Now().Add(1 * time.Second))
-		d.socketMain.Write([]byte("stop\n"))
-		_ = d.socketMain.Close()
+		//_=d.socketMain.SetWriteDeadline(time.Now().Add(1 * time.Second))
+		//_,_=d.socketMain.Write([]byte("stop\n"))
+		_ = (*d.socketMain).Close()
 		if d.full {
-			d.socketSecond.SetWriteDeadline(time.Now().Add(1 * time.Second))
-			d.socketSecond.Write([]byte("stop\n"))
-			_ = d.socketSecond.Close()
+			//_=d.socketSecond.SetWriteDeadline(time.Now().Add(1 * time.Second))
+			//_,_=d.socketSecond.Write([]byte("stop\n"))
+			_ = (*d.socketSecond).Close()
 		}
 		d.deleted = true
 		mutex.Lock()
@@ -118,4 +120,13 @@ type USBInfo struct {
 	Present bool   `json:"present"`
 	Model   string `json:"model"`
 	Status  string `json:"status"`
+}
+
+func getInfoConnect(s string) DeviceInfo {
+	ls := strings.Split(s, ",")
+	if len(ls) != 3 {
+		return DeviceInfo{ID: 0}
+	}
+	id, _ := strconv.Atoi(ls[1])
+	return DeviceInfo{ID: id, Type: ls[2]}
 }
