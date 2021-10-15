@@ -39,7 +39,7 @@ func (d *DeviceControl) restartTimer2() {
 	d.mutex.Lock()
 	defer d.mutex.Unlock()
 	d.timer2.Stop()
-	d.timer2 = time.NewTimer(d.interval * time.Second)
+	d.timer2 = time.NewTimer((d.interval + 5) * time.Second)
 }
 
 func newDevice(devinfo DeviceInfo, socket *net.Conn) *DeviceControl {
@@ -55,9 +55,9 @@ func newDevice(devinfo DeviceInfo, socket *net.Conn) *DeviceControl {
 	dev.interval = time.Duration(delay)
 	dev.socketMain = socket
 	dev.full = false
-	dev.deleted = true
+	dev.deleted = false
 	dev.timer1 = time.NewTimer(dev.interval * time.Second)
-	dev.timer2 = time.NewTimer(dev.interval * time.Second)
+	dev.timer2 = time.NewTimer(10 * dev.interval * time.Second)
 	return dev
 }
 func (d *DeviceControl) closeAll() {
@@ -76,9 +76,6 @@ func (d *DeviceControl) closeAll() {
 			_ = (*d.socketSecond).Close()
 		}
 		d.deleted = true
-		mutex.Lock()
-		delete(devices, d.DeviceInfo.ID)
-		mutex.Unlock()
 
 	}
 	logger.Info.Printf("Обмен с устройством %d %s прекращен", d.DeviceInfo.ID, d.DeviceInfo.Type)

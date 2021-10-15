@@ -3,6 +3,7 @@ package server
 import (
 	"bufio"
 	"github.com/ruraomsk/TLServer/logger"
+	"strings"
 	"time"
 )
 
@@ -11,37 +12,62 @@ func serverToDevice(dev *DeviceControl) {
 	writer := bufio.NewWriter(*dev.socketMain)
 	for {
 		select {
-		case <-dev.stop:
-			return
 		case s := <-dev.chanToMain:
-			time.Sleep(250 * time.Millisecond)
-			logger.Info.Printf("Отправляем по главному %s\n", s)
-			_ = (*dev.socketMain).SetWriteDeadline(time.Now().Add(time.Second * 10))
-			_, _ = writer.WriteString(s)
-			_, _ = writer.WriteString("\n")
-			err := writer.Flush()
-			if err != nil {
-				logger.Error.Printf("При передаче на %d по адресу %s %s", dev.DeviceInfo.ID, (*dev.socketMain).RemoteAddr().String(), err.Error())
-				dev.errorChan <- 1
-				return
+			for {
+				time.Sleep(250 * time.Millisecond)
+				if dev.deleted {
+					return
+				}
+				logger.Info.Printf("-> %s", s)
+				_ = (*dev.socketMain).SetWriteDeadline(time.Now().Add(time.Second * 10))
+				_, _ = writer.WriteString(s)
+				_, _ = writer.WriteString("\n")
+				err := writer.Flush()
+				if err != nil {
+					logger.Error.Printf("При передаче на %d по адресу %s %s", dev.DeviceInfo.ID, (*dev.socketMain).RemoteAddr().String(), err.Error())
+					dev.errorChan <- 1
+					return
+				}
+				var c []byte
+				count := 1
+				for {
+					if dev.deleted {
+						return
+					}
+					_ = (*dev.socketMain).SetReadDeadline(time.Now().Add(time.Second * 10))
+					c, err = reader.ReadBytes('\n')
+					if err != nil {
+						count--
+						logger.Error.Printf("При приеме ответа от %d по адресу %s %s", dev.DeviceInfo.ID, (*dev.socketMain).RemoteAddr().String(), err.Error())
+						if !strings.Contains(err.Error(), "i/o timeout") {
+							dev.errorChan <- 1
+							return
+						}
+						if count < 0 {
+							dev.errorChan <- 1
+							return
+						}
+						continue
+					}
+					break
+				}
+				if dev.deleted {
+					return
+				}
+				logger.Info.Printf("<- %s", string(c))
+				if strings.HasPrefix(string(c), "repeat again") {
+					continue
+				}
+				dev.restartTimer1()
+				dev.chanFromMain <- string(c[:len(c)-1])
+				break
 			}
-			_ = (*dev.socketMain).SetReadDeadline(time.Now().Add(time.Second * 10))
-			c, err := reader.ReadBytes('\n')
-			if err != nil {
-				logger.Error.Printf("При приеме ответа от %d по адресу %s %s", dev.DeviceInfo.ID, (*dev.socketMain).RemoteAddr().String(), err.Error())
-				dev.errorChan <- 1
-				return
-			}
-			logger.Info.Printf("Получили по главному %s", string(c))
-			dev.chanFromMain <- string(c[:len(c)-1])
-			dev.restartTimer1()
 
 		}
 	}
 }
 func deviceToServer(dev *DeviceControl) {
 	reader := bufio.NewReader(*dev.socketSecond)
-	writer := bufio.NewWriter(*dev.socketSecond)
 	for {
 		_ = (*dev.socketSecond).SetReadDeadline(time.Time{}) //Без таймаута чтение
 		c, err := reader.ReadBytes('\n')
@@ -50,24 +76,14 @@ func deviceToServer(dev *DeviceControl) {
 			dev.errorChan <- 1
 			return
 		}
-		logger.Info.Printf("Получили по резервному %s", string(c))
-		dev.chanFromSecond <- string(c[:len(c)-1])
-		dev.restartTimer2()
-		select {
-		case <-dev.stop:
+		if dev.deleted {
 			return
-		case s := <-dev.chanToSecond:
-			logger.Info.Printf("Отправляем по второму %s", s)
-			_ = (*dev.socketSecond).SetWriteDeadline(time.Now().Add(time.Second * 10))
-			_, _ = writer.WriteString(s)
-			_, _ = writer.WriteString("\n")
-			err = writer.Flush()
-			if err != nil {
-				logger.Error.Printf("При передаче второго  %d по адресу %s %s", dev.DeviceInfo.ID, (*dev.socketMain).RemoteAddr().String(), err.Error())
-				dev.errorChan <- 1
-				return
-			}
-			dev.restartTimer2()
 		}
+		logger.Info.Printf("<= %s", string(c))
+		dev.restartTimer2()
+		if dev.deleted {
+			return
+		}
+		dev.chanFromSecond <- string(c[:len(c)-1])
 	}
 }
